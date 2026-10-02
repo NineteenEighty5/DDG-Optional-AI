@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "DDG Optional AI",
+  "version": "6.5.0",
+  "description": "Search DuckDuckGo without AI results by default. Add one question mark (?) to the end of your search to see AI-enhanced results instead. Add two question marks (??) to open Duck.ai chat with your question already typed in, ready to send.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{42dcf26f-1c15-4e0f-ad25-6d03ea91b06c}",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    },
+    "gecko_android": {}
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": ["declarativeNetRequest", "webNavigation", "tabs"],
+  "host_permissions": ["*://duckduckgo.com/*", "*://noai.duckduckgo.com/*"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  }
+}

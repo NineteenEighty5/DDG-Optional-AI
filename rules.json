@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "priority": 4,
+    "action": {
+      "type": "allow"
+    },
+    "condition": {
+      "regexFilter": "^https://duckduckgo\\.com/\\?q=.*&duckai=1(&.*)?$",
+      "isUrlFilterCaseSensitive": false,
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 3,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://duckduckgo.com/?q=\\1&ia=chat&duckai=1&prompt=1"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https://duckduckgo\\.com/\\?q=(.*)(?:%3[Ff]|\\?){2}(?:&.*)?$",
+      "isUrlFilterCaseSensitive": false,
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 2,
+    "action": {
+      "type": "allow"
+    },
+    "condition": {
+      "regexFilter": "^https://duckduckgo\\.com/\\?q=.*(?:%3[Ff]|\\?)(?:&.*)?$",
+      "isUrlFilterCaseSensitive": false,
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://noai.duckduckgo.com\\1"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https://duckduckgo\\.com(/\\?q=.*)$",
+      "isUrlFilterCaseSensitive": false,
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]
